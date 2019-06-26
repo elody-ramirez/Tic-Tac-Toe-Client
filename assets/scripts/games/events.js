@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const wins = require('./wins')
+const store = require('../store')
 
 const onNewGame = event => {
   event.preventDefault()
@@ -15,35 +16,36 @@ const onNewGame = event => {
     .catch(ui.newGameFailure)
 }
 
-let player = 1
-
 const markBoard = () => {
   let mark = ''
-  if (player === 1) {
+  if (store.player === 'X') {
     mark = 'X'
-    player = 2
+    store.player = 'O'
+    store.prevPlayer = 'X'
   } else {
     mark = 'O'
-    player = 1
+    store.player = 'X'
+    store.prevPlayer = 'O'
   }
   return mark
 }
 
-const board = ['', '', '', '', '', '', '', '', '']
-
 const onMakeMove = event => {
-  const box = event.target
-  const position = Number(box.id)
-  if (board[position] === '') {
-    console.log('legal play')
-    const play = markBoard()
-    board[position] = play
-    console.log(wins.checkWin(board, play))
-    wins.checkWin(board, play)
-    ui.makeMoveSuccessful(box, play)
+  if (!store.gameOver) {
+    const box = event.target
+    const position = Number(box.id)
+    if (store.board[position] === '') {
+      console.log('legal play')
+      const play = markBoard()
+      store.board[position] = play
+      api.makeMove(position, play)
+        .then(ui.makeMoveSuccessful(box, play))
+    } else {
+      console.log('illegal play')
+      ui.makeMoveFailure()
+    }
   } else {
-    console.log('illegal play')
-    ui.makeMoveFailure()
+    console.log('Game is Over')
   }
 }
 
