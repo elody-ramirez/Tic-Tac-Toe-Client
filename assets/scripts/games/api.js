@@ -1,6 +1,6 @@
 'use strict'
 
-const config = require('../config.js')
+const config = require('../config')
 const store = require('../store')
 
 const newGame = formData => {

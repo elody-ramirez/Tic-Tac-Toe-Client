@@ -14,6 +14,13 @@ const onNewGame = event => {
     .catch(ui.newGameFailure)
 }
 
+const onMakeMove = event => {
+  console.log('success')
+  const box = event.target
+  ui.makeMoveSuccessful(box)
+}
+
 module.exports = {
-  onNewGame
+  onNewGame,
+  onMakeMove
 }
