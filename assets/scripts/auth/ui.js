@@ -14,6 +14,7 @@ const failureMessage = message => {
 
 const signUpSuccessful = responseData => {
   successMessage('You signed up successfully!')
+  $('#sign-up').addClass('hide')
 }
 
 const signUpFailure = () => {
@@ -23,6 +24,10 @@ const signUpFailure = () => {
 const signInSuccessful = responseData => {
   successMessage('You logged into your account!')
   store.user = responseData.user
+  $('#sign-up').addClass('hide')
+  $('#sign-in').addClass('hide')
+  $('#change-password').removeClass('hide')
+  $('#sign-out').removeClass('hide')
 }
 
 const signInFailure = () => {
@@ -39,6 +44,10 @@ const changePasswordFailure = () => {
 
 const signOutSuccessful = responseData => {
   successMessage('You have successfully logged out!')
+  $('#sign-up').removeClass('hide')
+  $('#sign-in').removeClass('hide')
+  $('#change-password').addClass('hide')
+  $('#sign-out').addClass('hide')
 }
 
 const signOutFailure = () => {
