@@ -19,21 +19,8 @@ const newGameFailure = () => {
   failureMessage('You were unable to start a new game!')
 }
 
-let player = 1
-const markBoard = () => {
-  let mark = ''
-  if (player === 1) {
-    mark = 'X'
-    player = 2
-  } else {
-    mark = 'O'
-    player = 1
-  }
-  return mark
-}
-
-const makeMoveSuccessful = currentBox => {
-  $(currentBox).text(markBoard)
+const makeMoveSuccessful = (currentBox, play) => {
+  $(currentBox).text(play)
 }
 
 const makeMoveFailure = responseData => {

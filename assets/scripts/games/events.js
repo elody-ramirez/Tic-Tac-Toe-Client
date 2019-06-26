@@ -14,10 +14,33 @@ const onNewGame = event => {
     .catch(ui.newGameFailure)
 }
 
+let player = 1
+const markBoard = () => {
+  let mark = ''
+  if (player === 1) {
+    mark = 'X'
+    player = 2
+  } else {
+    mark = 'O'
+    player = 1
+  }
+  return mark
+}
+
+const board = ['', '', '', '', '', '', '', '', '']
+
 const onMakeMove = event => {
-  console.log('success')
   const box = event.target
-  ui.makeMoveSuccessful(box)
+  const position = Number(box.id)
+  if (board[position] === '') {
+    console.log('legal play')
+    const play = markBoard()
+    board[position] = play
+    ui.makeMoveSuccessful(box, play)
+  } else {
+    console.log('illegal play')
+    ui.makeMoveFailure()
+  }
 }
 
 module.exports = {
