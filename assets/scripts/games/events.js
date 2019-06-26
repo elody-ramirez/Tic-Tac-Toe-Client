@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const wins = require('./wins')
 
 const onNewGame = event => {
   event.preventDefault()
@@ -15,6 +16,7 @@ const onNewGame = event => {
 }
 
 let player = 1
+
 const markBoard = () => {
   let mark = ''
   if (player === 1) {
@@ -36,6 +38,8 @@ const onMakeMove = event => {
     console.log('legal play')
     const play = markBoard()
     board[position] = play
+    console.log(wins.checkWin(board, play))
+    wins.checkWin(board, play)
     ui.makeMoveSuccessful(box, play)
   } else {
     console.log('illegal play')
