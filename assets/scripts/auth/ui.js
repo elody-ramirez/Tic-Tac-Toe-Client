@@ -4,15 +4,11 @@ const store = require('../store')
 
 const successMessage = message => {
   $('#message').text(message)
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
   $('form').trigger('reset')
 }
 
 const failureMessage = message => {
   $('#message').text(message)
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
   $('form').trigger('reset')
 }
 
@@ -34,11 +30,19 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccessful = responseData => {
-  successMessage('You successfully changed your password')
+  successMessage('You successfully changed your password!')
 }
 
 const changePasswordFailure = () => {
-  failureMessage('You were not able to change your password')
+  failureMessage('You were not able to change your password!')
+}
+
+const signOutSuccessful = responseData => {
+  successMessage('You have successfully logged out!')
+}
+
+const signOutFailure = () => {
+  failureMessage('You were unable to log out')
 }
 
 module.exports = {
@@ -47,5 +51,7 @@ module.exports = {
   signInSuccessful,
   signInFailure,
   changePasswordSuccessful,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccessful,
+  signOutFailure
 }
