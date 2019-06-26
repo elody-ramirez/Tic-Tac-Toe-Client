@@ -1,6 +1,6 @@
 'use strict'
 
-// const store = require('../store')
+const store = require('../store')
 
 const successMessage = message => {
   $('#message').text(message)
@@ -26,15 +26,26 @@ const signUpFailure = () => {
 
 const signInSuccessful = responseData => {
   successMessage('You logged into your account!')
+  store.user = responseData.user
 }
 
 const signInFailure = () => {
   failureMessage("You weren't able to log in!")
 }
 
+const changePasswordSuccessful = responseData => {
+  successMessage('You successfully changed your password')
+}
+
+const changePasswordFailure = () => {
+  failureMessage('You were not able to change your password')
+}
+
 module.exports = {
   signUpSuccessful,
   signUpFailure,
   signInSuccessful,
-  signInFailure
+  signInFailure,
+  changePasswordSuccessful,
+  changePasswordFailure
 }
