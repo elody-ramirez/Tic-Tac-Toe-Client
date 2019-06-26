@@ -28,6 +28,7 @@ const signInSuccessful = responseData => {
   $('#sign-in').addClass('hide')
   $('#change-password').removeClass('hide')
   $('#sign-out').removeClass('hide')
+  $('#game-options').removeClass('hide')
 }
 
 const signInFailure = () => {
