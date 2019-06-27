@@ -53,6 +53,10 @@ played. With this information I was able to add functions to the UI to check
 the user's total wins assuming they were always X and their total games. I also
 had to fix my PATCH API info to let the API know if the game was over or not.
 
+I then refactored my code and created functions in a new file to pull into my
+events file to make it look cleaner. I also added notes to functions to better
+explain it to others and so they can understand. 
+
 ## Problem-Solving Strategy
 The update move or PATCH communication to the API gave me trouble. The way I
 approached this is to see what the API needed. Once I wrote those down I looked
@@ -68,7 +72,7 @@ looked through my code to find out why this was occuring. I realized that
 my event handler would always check if the game was over in order to allow a
 click. If the board wasn't full it would run, send the info to the api and then
 the ui would update if the game was over or not. I moved this check to the events
-handler file so that the update would occur before the api was spoken with. 
+handler file so that the update would occur before the api was spoken with.
 ## Unsolved Problems
 
 ## Future Features
