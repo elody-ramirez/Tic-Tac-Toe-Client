@@ -50,6 +50,9 @@ const signOutSuccessful = responseData => {
   $('#sign-in').removeClass('hide')
   $('#change-password').addClass('hide')
   $('#sign-out').addClass('hide')
+  $('.container').addClass('hide')
+  $('#index-games').addClass('hide')
+  $('#game-options').addClass('hide')
 }
 
 const signOutFailure = () => {
