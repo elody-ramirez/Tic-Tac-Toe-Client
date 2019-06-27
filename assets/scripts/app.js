@@ -14,6 +14,8 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
 
   $('#new-game').on('submit', gameEvents.onNewGame)
-  $('.col-4').on('click', gameEvents.onMakeMove)
+  $('.box').on('click', gameEvents.onMakeMove)
+  $('.box').on('mouseenter', gameEvents.onHoverIn)
+  $('.box').on('mouseleave', gameEvents.onHoverOut)
   $('#index-games').on('click', gameEvents.onIndexGames)
 })

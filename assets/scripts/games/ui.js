@@ -68,6 +68,14 @@ const indexGamesFailure = responseData => {
   failureMessage('This action was not successul')
 }
 
+const hoverIn = box => {
+  $(box).text(store.player)
+}
+
+const hoverOut = box => {
+  $(box).text('')
+}
+
 const illegalMove = responseData => {
   failureMessage('This box was already filled. Please select another')
 }
@@ -84,5 +92,7 @@ module.exports = {
   indexGamesSuccessful,
   indexGamesFailure,
   illegalMove,
-  gameOver
+  gameOver,
+  hoverIn,
+  hoverOut
 }

@@ -22,6 +22,14 @@ const onIndexGames = event => {
     .catch(ui.indexGamesFailure)
 }
 
+const onHoverIn = event => {
+  ui.hoverIn(event.target)
+}
+
+const onHoverOut = event => {
+  ui.hoverOut(event.target)
+}
+
 const onMakeMove = event => {
   // Check if the game is over, if not over continue
   if (!store.gameOver) {
@@ -46,5 +54,7 @@ const onMakeMove = event => {
 module.exports = {
   onNewGame,
   onMakeMove,
-  onIndexGames
+  onIndexGames,
+  onHoverIn,
+  onHoverOut
 }
