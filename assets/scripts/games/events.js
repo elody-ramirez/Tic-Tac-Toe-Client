@@ -1,10 +1,10 @@
 'use strict'
 
 const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store')
+const other = require('./other')
 const api = require('./api')
 const ui = require('./ui')
-const other = require('./other')
-const store = require('../store')
 
 const onNewGame = event => {
   event.preventDefault()
@@ -22,44 +22,24 @@ const onIndexGames = event => {
     .catch(ui.indexGamesFailure)
 }
 
-const markBoard = () => {
-  let mark = ''
-  if (store.player === 'X') {
-    mark = 'X'
-    store.player = 'O'
-    store.prevPlayer = 'X'
-  } else {
-    mark = 'O'
-    store.player = 'X'
-    store.prevPlayer = 'O'
-  }
-  return mark
-}
-
 const onMakeMove = event => {
+  // Check if the game is over, if not over continue
   if (!store.gameOver) {
-    const box = event.target
-    const position = Number(box.id)
+    const position = Number(event.target.id)
+    // Check if the box is filled, if not continue
     if (store.board[position] === '') {
-      console.log('legal play')
-      const play = markBoard()
-      store.board[position] = play
-      store.moveCount++
-      if (other.checkWin(store.board, play) || store.moveCount === 9) {
-        store.gameOver = true
-      }
-      if (!other.checkWin(store.board, play) && store.moveCount === 9) {
-        store.tie = true
-      }
+      // Will return if X or O, will also update gameover, tie, and total moves
+      const play = other.markAndUpdate(position)
       api.makeMove(position, play)
-        .then(ui.makeMoveSuccessful(box, play))
+        .then(ui.makeMoveSuccessful(event.target, play))
         .catch(ui.makeMoveFailure)
     } else {
-      console.log('illegal play')
-      ui.makeMoveFailure()
+      // if the box is filled let the User know it is an illgeal Move
+      ui.illegalMove()
     }
   } else {
-    console.log('Game is Over')
+    // if the  game is over, let the User know it is over
+    ui.gameOver()
   }
 }
 
