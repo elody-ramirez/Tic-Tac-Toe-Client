@@ -46,6 +46,7 @@ const onMakeMove = event => {
       store.board[position] = play
       api.makeMove(position, play)
         .then(ui.makeMoveSuccessful(box, play))
+        .catch(ui.makeMoveFailure)
     } else {
       console.log('illegal play')
       ui.makeMoveFailure()
