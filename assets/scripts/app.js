@@ -15,7 +15,7 @@ $(() => {
 
   $('#new-game').on('submit', gameEvents.onNewGame)
   $('.box').on('click', gameEvents.onMakeMove)
-  $('.box').on('mouseenter', gameEvents.onHoverIn)
-  $('.box').on('mouseleave', gameEvents.onHoverOut)
+  // $('.box').on('mouseenter', gameEvents.onHoverIn)
+  // $('.box').on('mouseleave', gameEvents.onHoverOut)
   $('#index-games').on('click', gameEvents.onIndexGames)
 })
