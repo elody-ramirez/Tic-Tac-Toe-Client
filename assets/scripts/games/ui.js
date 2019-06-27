@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store')
-// const wins = require('./wins')
+const other = require('./other')
 
 const successMessage = message => {
   $('#message').text(message)
@@ -41,12 +41,30 @@ const makeMoveSuccessful = (currentBox, play) => {
 }
 
 const makeMoveFailure = responseData => {
-  successMessage("You can't make this move")
+  failureMessage("You can't make this move")
+}
+
+const indexGamesSuccessful = responseData => {
+  const games = responseData.games
+  let wins = 0
+  for (let i = 0; i < games.length; i++) {
+    if (other.checkWin(games[i].cells, 'X')) {
+      wins++
+    }
+  }
+  console.log(responseData)
+  successMessage(`You have won ${wins} games out of the ${games.length} you played`)
+}
+
+const indexGamesFailure = responseData => {
+  failureMessage('This action was not successul')
 }
 
 module.exports = {
   newGameSuccessful,
   newGameFailure,
   makeMoveSuccessful,
-  makeMoveFailure
+  makeMoveFailure,
+  indexGamesSuccessful,
+  indexGamesFailure
 }
