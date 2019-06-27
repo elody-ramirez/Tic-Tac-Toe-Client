@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const wins = require('./wins')
+// const wins = require('./wins')
 const store = require('../store')
 
 const onNewGame = event => {
@@ -14,6 +14,12 @@ const onNewGame = event => {
   api.newGame(formData)
     .then(ui.newGameSuccessful)
     .catch(ui.newGameFailure)
+}
+
+const onIndexGames = event => {
+  api.indexGames()
+    .then(console.log('Good Job'))
+    .catch(ui.indexGamesFailure)
 }
 
 const markBoard = () => {
@@ -51,5 +57,6 @@ const onMakeMove = event => {
 
 module.exports = {
   onNewGame,
-  onMakeMove
+  onMakeMove,
+  onIndexGames
 }

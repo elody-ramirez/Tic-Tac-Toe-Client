@@ -14,6 +14,16 @@ const newGame = formData => {
   })
 }
 
+const indexGames = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const makeMove = (index, value) => {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
@@ -35,5 +45,6 @@ const makeMove = (index, value) => {
 
 module.exports = {
   newGame,
-  makeMove
+  makeMove,
+  indexGames
 }
