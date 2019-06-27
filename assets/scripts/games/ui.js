@@ -26,7 +26,7 @@ const newGameSuccessful = responseData => {
   $('.container').removeClass('hide')
   $('.box').text('')
   // Clears board, sets everything to fresh start, record game id
-  clearGame()
+  clearGame(responseData)
 }
 
 const newGameFailure = () => {
