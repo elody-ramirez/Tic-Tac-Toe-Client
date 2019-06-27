@@ -49,7 +49,9 @@ when logged in. After the button was working I made sure the new Game button
 and every move communicated with the API.
 
 When logged in I then added the button to get all the games a player has
-played.
+played. With this information I was able to add functions to the UI to check
+the user's total wins assuming they were always X and their total games. I also
+had to fix my PATCH API info to let the API know if the game was over or not.
 
 ## Problem-Solving Strategy
 The update move or PATCH communication to the API gave me trouble. The way I
@@ -60,6 +62,13 @@ the index and value from when a move was made by accessing the element's ID. I
 put these values in the store file and accessed it everytime the game talked
 to the API to update.
 
+I ran into another problem where I never told the API if the game was over.
+I noticed this when I implemented the index button to get all games. First, I
+looked through my code to find out why this was occuring. I realized that
+my event handler would always check if the game was over in order to allow a
+click. If the board wasn't full it would run, send the info to the api and then
+the ui would update if the game was over or not. I moved this check to the events
+handler file so that the update would occur before the api was spoken with. 
 ## Unsolved Problems
 
 ## Future Features
