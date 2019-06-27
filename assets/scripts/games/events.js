@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-// const wins = require('./wins')
+const wins = require('./wins')
 const store = require('../store')
 
 const onNewGame = event => {
@@ -18,7 +18,7 @@ const onNewGame = event => {
 
 const onIndexGames = event => {
   api.indexGames()
-    .then(console.log('Good Job'))
+    .then(console.log)
     .catch(ui.indexGamesFailure)
 }
 
@@ -44,6 +44,13 @@ const onMakeMove = event => {
       console.log('legal play')
       const play = markBoard()
       store.board[position] = play
+      store.moveCount++
+      if (wins.checkWin(store.board, play) || store.moveCount === 9) {
+        store.gameOver = true
+      }
+      if (!wins.checkWin(store.board, play) && store.moveCount === 9) {
+        store.tie = true
+      }
       api.makeMove(position, play)
         .then(ui.makeMoveSuccessful(box, play))
         .catch(ui.makeMoveFailure)

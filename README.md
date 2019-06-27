@@ -38,9 +38,9 @@ I then added lines of code to check if the box that was clicked was already
 filled by keeping track of the board in the store file. If clicked it would be
 an illegal move and the user would be notified. After that feature I decided to
 add a GameOver property to the store value. Once a box is clicked it would first
-check if the move is legal, if legal, it would place the X/O and then check if
-the game is over. If not the next player would have a turn, if someone won, the
-user would be notified and they would not be allowed to continue making moves.
+check if the game is over, then if the move is legal, if legal, it would place
+the X/O. If not the next player would have a turn, if someone won, the user
+would be notified and they would not be allowed to continue making moves.
 
 All of these game features were done with the game at the screen as soon as the
 website comes up. I implemented the new game button, to always refresh all

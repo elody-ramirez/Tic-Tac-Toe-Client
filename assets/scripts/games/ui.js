@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store')
-const wins = require('./wins')
+// const wins = require('./wins')
 
 const successMessage = message => {
   $('#message').text(message)
@@ -22,6 +22,7 @@ const newGameSuccessful = responseData => {
   store.player = 'X'
   store.game = responseData.game
   store.gameOver = false
+  store.tie = false
 }
 
 const newGameFailure = () => {
@@ -30,11 +31,9 @@ const newGameFailure = () => {
 
 const makeMoveSuccessful = (currentBox, play) => {
   $(currentBox).text(play)
-  store.moveCount++
-  if (wins.checkWin(store.board, play)) {
-    store.gameOver = true
+  if (store.gameOver && !store.tie) {
     successMessage(`${store.prevPlayer} just WON!`)
-  } else if (store.moveCount === 9) {
+  } else if (store.tie) {
     successMessage(`The Game eneded in a tie. Play Again!`)
   } else {
     successMessage(`${store.player} goes now`)
