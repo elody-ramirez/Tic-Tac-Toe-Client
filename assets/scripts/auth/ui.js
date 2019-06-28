@@ -3,51 +3,70 @@
 const store = require('../store')
 
 const successMessage = message => {
-  $('#main-page-message').text(message)
+  $('#first-page-message').text(message)
+  $('.message1').show()
   $('form').trigger('reset')
 }
 
 const failureMessage = message => {
-  $('#main-page-message').text(message)
+  $('#first-page-message').text(message)
+  $('.message1').show()
   $('form').trigger('reset')
+}
+
+const clearMessaging = function () {
+  setTimeout(function () {
+    // $('#message').text('')
+    $('.message1').hide()
+  }, 4000)
 }
 
 const signUpSuccessful = responseData => {
   successMessage('You signed up successfully! Now Sign In!')
-  $('#sign-up-modal-button').addClass('hide')
+  clearMessaging()
 }
 
 const signUpFailure = () => {
   failureMessage('You failed to sign up! Try Again!')
+  clearMessaging()
 }
 
 const signInSuccessful = responseData => {
   successMessage('You logged into your account!')
   store.user = responseData.user
   $('.main-page').css('display', 'none')
-  $('.game-page').removeClass('hide')
+  $('.game-page-header').css('display', 'flex')
+  $('.new').css('display', 'flex')
+  clearMessaging()
 }
 
 const signInFailure = () => {
   failureMessage("You weren't able to log in!")
+  clearMessaging()
 }
 
 const changePasswordSuccessful = responseData => {
   successMessage('You successfully changed your password!')
+  clearMessaging()
 }
 
 const changePasswordFailure = () => {
   failureMessage('You were not able to change your password!')
+  clearMessaging()
 }
 
 const signOutSuccessful = responseData => {
   successMessage('You have successfully logged out!')
   $('.main-page').css('display', 'flex')
-  $('.game-page').addClass('hide')
+  $('.game-page-header').css('display', 'none')
+  $('.new').css('display', 'none')
+  $('.container').addClass('hide')
+  clearMessaging()
 }
 
 const signOutFailure = () => {
   failureMessage('You were unable to log out')
+  clearMessaging()
 }
 
 module.exports = {

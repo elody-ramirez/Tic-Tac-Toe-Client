@@ -18,11 +18,11 @@
         <h1>Tic-Tac-Toe</h1>
       </header>
       <main>
-        <h3 id="first-page-message"></h3>
+        <section class="message1">
+          <h3 id="first-page-message"></h3>
+        </section>
 
-        <h3 id="second-page-message"></h3>
-
-        <section class="main-page hide">
+        <section class="main-page">
           <!-- Sign Up modal button -->
           <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
           id="sign-up-modal-button" data-target="#sign-up-modal" >Sign Up</button>
@@ -83,11 +83,7 @@
         </section>
 
 
-        <section class="game-page hide">
-
-          <form id="new-game">
-            <button>New Game</button>
-          </form>
+        <section class="game-page-header">
 
           <!-- Change Password modal button-->
           <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
@@ -119,8 +115,15 @@
             </div>
           </div>
 
-          <button id="sign-out">Sign Out</button>
+          <button class="btn btn-primary" id="index-games">Get Your Stats</button>
+          <button class="btn btn-primary" id="sign-out">Sign Out</button>
+        </section>
 
+        <section class="message2">
+          <h3 id="second-page-message"></h3>
+        </section>
+
+        <section class="game">
           <div class="container hide">
             <div class="row">
               <div id="0" class="col-4 box"></div>
@@ -138,10 +141,12 @@
               <div id="8" class="col-4 box"></div>
             </div>
           </div>
-
-          <button id="index-games">Get All Games</button>
-
         </section>
+
+        <section class="new">
+          <button class="btn btn-primary" id="new-game">New Game</button>
+        </section>
+
       </main>
     </body>
 </html>

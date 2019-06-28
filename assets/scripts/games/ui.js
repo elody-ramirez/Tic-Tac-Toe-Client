@@ -4,13 +4,22 @@ const store = require('../store')
 const gameLogic = require('./gameLogic')
 
 const successMessage = message => {
-  $('#message').text(message)
+  $('#second-page-message').text(message)
+  $('.message2').show()
   $('form').trigger('reset')
 }
 
 const failureMessage = message => {
-  $('#message').text(message)
+  $('#second-page-message').text(message)
+  $('.message2').show()
   $('form').trigger('reset')
+}
+
+const clearMessaging = function () {
+  setTimeout(function () {
+    // $('#message').text('')
+    $('.message2').hide()
+  }, 4000)
 }
 const clearGame = responseData => {
   store.board = ['', '', '', '', '', '', '', '', '']
@@ -28,10 +37,12 @@ const newGameSuccessful = responseData => {
   $('.box').text('')
   // Clears board, sets everything to fresh start, record game id
   clearGame(responseData)
+  clearMessaging()
 }
 
 const newGameFailure = () => {
   failureMessage('You were unable to start a new game!')
+  clearMessaging()
 }
 
 const makeMoveSuccessful = (currentBox, play) => {
@@ -52,6 +63,7 @@ const makeMoveSuccessful = (currentBox, play) => {
 
 const makeMoveFailure = responseData => {
   failureMessage("You can't make this move")
+  clearMessaging()
 }
 
 const indexGamesSuccessful = responseData => {
@@ -63,10 +75,12 @@ const indexGamesSuccessful = responseData => {
     }
   }
   successMessage(`You have won ${wins} games out of the ${games.length} you played`)
+  clearMessaging()
 }
 
 const indexGamesFailure = responseData => {
   failureMessage('This action was not successul')
+  clearMessaging()
 }
 
 // const hoverIn = box => {
@@ -81,10 +95,12 @@ const indexGamesFailure = responseData => {
 
 const illegalMove = responseData => {
   failureMessage('This box was already filled. Please select angameLogic')
+  clearMessaging()
 }
 
 const gameOver = responseData => {
   failureMessage('The game is over. Please start a new game to continue playing')
+  clearMessaging()
 }
 
 module.exports = {

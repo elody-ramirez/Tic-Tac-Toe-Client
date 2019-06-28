@@ -32,8 +32,22 @@ header {
   justify-content: center;
 }
 
-.game-page {
+.game-page-header {
+  display: none;
+  justify-content: space-around;
+  .btn {
+    background-color: grey;
+  }
+}
+
+.message1,
+.message2 {
   display: flex;
+  justify-content: center;
+}
+
+.new {
+  display: none;
   justify-content: space-around;
   .btn {
     background-color: grey;
