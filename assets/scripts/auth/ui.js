@@ -3,22 +3,22 @@
 const store = require('../store')
 
 const successMessage = message => {
-  $('#message').text(message)
+  $('#main-page-message').text(message)
   $('form').trigger('reset')
 }
 
 const failureMessage = message => {
-  $('#message').text(message)
+  $('#main-page-message').text(message)
   $('form').trigger('reset')
 }
 
 const signUpSuccessful = responseData => {
-  successMessage('You signed up successfully!')
-  $('#sign-up').addClass('hide')
+  successMessage('You signed up successfully! Now Sign In!')
+  $('#sign-up-modal-button').addClass('hide')
 }
 
 const signUpFailure = () => {
-  failureMessage('You failed to sign up!')
+  failureMessage('You failed to sign up! Try Again!')
 }
 
 const signInSuccessful = responseData => {

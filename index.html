@@ -10,111 +10,114 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <style> @import url('https://fonts.googleapis.com/css?family=B612+Mono&display=swap');
+      </style>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <header class="container-header">
+        <h1>Tic-Tac-Toe</h1>
+      </header>
+      <main>
+        <h3 id="main-page-message"></h3>
 
-      <h3 id="message"></h3>
+        <h3 id="second-page-message"></h3>
 
-      <!-- Sign Up modal button -->
-      <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
-      id="sign-up-modal-button" data-target="#sign-up-modal" >Sign Up</button>
+        <section class="main-page">
+          <!-- Sign Up modal button -->
+          <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
+          id="sign-up-modal-button" data-target="#sign-up-modal" >Sign Up</button>
 
-      <!-- Sign Up modal -->
-      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"
-      aria-labelledby="signUpModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="sign-up-label">Sign Up</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="sign-up">
-                <input type="email" name=credentials[email]
-                class="form-control" placeholder="Enter Email Here" required>
-                <input type="password" name=credentials[password]
-                class="form-control" placeholder="Enter Password Here" required>
-                <input type="password" name=credentials[password_confirmation]
-                class="form-control" placeholder="Re-enter Password" required>
-                <button class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sign In modal button-->
-      <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
-      id="sign-in-modal-button" data-target="#sign-in-modal">Sign In</button>
-
-      <!-- Sign Up modal -->
-      <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog"
-      aria-labelledby="signInModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="sign-in-label">Sign In</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="sign-in">
-                <input type="email" name=credentials[email]
-                class="form-control" placeholder="Enter Email Here" required>
-                <input type="password" name=credentials[password]
-                class="form-control" placeholder="Enter Password Here" required>
-                <button class="btn btn-primary">Submit</button>
-              </form>
+          <!-- Sign Up modal -->
+          <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"
+          aria-labelledby="signUpModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="sign-up-label">Sign Up</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-up">
+                    <input type="email" name=credentials[email]
+                    class="form-control" placeholder="Enter Email Here" required>
+                    <input type="password" name=credentials[password]
+                    class="form-control" placeholder="Enter Password Here" required>
+                    <input type="password" name=credentials[password_confirmation]
+                    class="form-control" placeholder="Re-enter Password" required>
+                    <button class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <section id=game-options class="hide">
-        <form id="new-game">
-          <button>New Game</button>
+          <!-- Sign In modal button-->
+          <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
+          id="sign-in-modal-button" data-target="#sign-in-modal">Sign In</button>
+
+          <!-- Sign Up modal -->
+          <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog"
+          aria-labelledby="signInModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="sign-in-label">Sign In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-in">
+                    <input type="email" name=credentials[email]
+                    class="form-control" placeholder="Enter Email Here" required>
+                    <input type="password" name=credentials[password]
+                    class="form-control" placeholder="Enter Password Here" required>
+                    <button class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id=game-options class="hide">
+          <form id="new-game">
+            <button>New Game</button>
+          </form>
+        </section>
+
+        <form id="change-password" class="hide">
+          <input type="password" name="passwords[old]"
+          placeholder="Old Password">
+          <input type="password" name="passwords[new]"
+          placeholder="New Password">
+          <button type="submit">Change Password</button>
         </form>
-      </section>
 
-      <form id="change-password" class="hide">
-        <input type="password" name="passwords[old]"
-        placeholder="Old Password">
-        <input type="password" name="passwords[new]"
-        placeholder="New Password">
-        <button type="submit">Change Password</button>
-      </form>
-
-      <button id="sign-out" class="hide">Sign Out</button>
+        <button id="sign-out" class="hide">Sign Out</button>
 
 
-      <div class="container hide">
-        <div class="row">
-          <div id="0" class="col-4 box"></div>
-          <div id="1" class="col-4 box"></div>
-          <div id="2" class="col-4 box"></div>
+        <div class="container hide">
+          <div class="row">
+            <div id="0" class="col-4 box"></div>
+            <div id="1" class="col-4 box"></div>
+            <div id="2" class="col-4 box"></div>
+          </div>
+          <div class="row">
+            <div id="3" class="col-4 box"></div>
+            <div id="4" class="col-4 box"></div>
+            <div id="5" class="col-4 box"></div>
+          </div>
+          <div class="row">
+            <div id="6" class="col-4 box"></div>
+            <div id="7" class="col-4 box"></div>
+            <div id="8" class="col-4 box"></div>
+          </div>
         </div>
-        <div class="row">
-          <div id="3" class="col-4 box"></div>
-          <div id="4" class="col-4 box"></div>
-          <div id="5" class="col-4 box"></div>
-        </div>
-        <div class="row">
-          <div id="6" class="col-4 box"></div>
-          <div id="7" class="col-4 box"></div>
-          <div id="8" class="col-4 box"></div>
-        </div>
-      </div>
 
-
-
-      <button id="index-games" class="hide">Get All Games</button>
-
-
-
-
+        <button id="index-games" class="hide">Get All Games</button>
+      </main>
     </body>
 </html>

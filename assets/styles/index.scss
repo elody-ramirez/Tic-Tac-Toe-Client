@@ -1,14 +1,62 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-image: url('https://image.shutterstock.com/image-vector/back-school-background-doodle-tic-600w-670970059.jpg');
+  background-image: url('https://ak3.picdn.net/shutterstock/videos/10260563/thumb/3.jpg');
+  background-size: cover;
+  font-family: 'B612 Mono', monospace;
+}
+
+h1 {
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+header {
+  border-bottom: 2px gold solid;
+}
+
+.box {
+  border: 0.2rem solid black;
+  padding: 1rem;
+}
+
+.close {
+  color: white;
+}
+
+.container-header {
+  display: flex;
+  justify-content: center;
 }
 
 .hide {
   display: none;
 }
 
-.box {
-  border: 0.2rem solid black;
-  padding: 1rem;
+.main-page {
+  display: flex;
+  justify-content: space-around;
+  .btn {
+    background-color: grey;
+  }
+}
+
+.modal {
+  background-image: url('https://ak3.picdn.net/shutterstock/videos/10260563/thumb/3.jpg');
+  background-size: cover;
+  .btn {
+    background-image: url('https://ak3.picdn.net/shutterstock/videos/10260563/thumb/3.jpg');
+  }
+}
+
+.modal-content {
+  background-color: gray;
+  opacity: 0.8;
+}
+
+.modal-title {
+  color: white;
 }
