@@ -19,8 +19,12 @@ header {
 }
 
 .box {
-  border: 0.2rem solid black;
-  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vw;
+  width: 15vw;
+  font-size: 15vw;
 }
 
 .close {
@@ -81,4 +85,20 @@ header {
 
 .modal-title {
   color: white;
+}
+
+.top {
+  border-bottom: 1px solid black;
+}
+
+.bottom {
+  border-top: 1px solid black;
+}
+
+.left {
+  border-right: 1px solid black;
+}
+
+.right {
+  border-left: 1px solid black;
 }

@@ -94,13 +94,12 @@ const indexGamesFailure = responseData => {
 // }
 
 const illegalMove = responseData => {
-  failureMessage('This box was already filled. Please select angameLogic')
+  failureMessage('This box was already filled. Please select another box')
   clearMessaging()
 }
 
 const gameOver = responseData => {
   failureMessage('The game is over. Please start a new game to continue playing')
-  clearMessaging()
 }
 
 module.exports = {
