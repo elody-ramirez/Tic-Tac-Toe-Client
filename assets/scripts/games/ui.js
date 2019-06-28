@@ -19,7 +19,7 @@ const clearMessaging = function () {
   setTimeout(function () {
     // $('#message').text('')
     $('.message2').hide()
-  }, 4000)
+  }, 3000)
 }
 const clearGame = responseData => {
   store.board = ['', '', '', '', '', '', '', '', '']

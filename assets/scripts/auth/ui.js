@@ -18,7 +18,7 @@ const clearMessaging = function () {
   setTimeout(function () {
     // $('#message').text('')
     $('.message1').hide()
-  }, 4000)
+  }, 3000)
 }
 
 const signUpSuccessful = responseData => {
