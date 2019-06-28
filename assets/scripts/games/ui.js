@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store')
-const other = require('./other')
+const gameLogic = require('./gameLogic')
 
 const successMessage = message => {
   $('#message').text(message)
@@ -58,7 +58,7 @@ const indexGamesSuccessful = responseData => {
   const games = responseData.games
   let wins = 0
   for (let i = 0; i < games.length; i++) {
-    if (other.checkWin(games[i].cells, 'X')) {
+    if (gameLogic.checkWin(games[i].cells, 'X')) {
       wins++
     }
   }
@@ -80,7 +80,7 @@ const indexGamesFailure = responseData => {
 // }
 
 const illegalMove = responseData => {
-  failureMessage('This box was already filled. Please select another')
+  failureMessage('This box was already filled. Please select angameLogic')
 }
 
 const gameOver = responseData => {

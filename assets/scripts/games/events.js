@@ -2,7 +2,7 @@
 
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
-const other = require('./other')
+const gameLogic = require('./gameLogic')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -37,7 +37,7 @@ const onMakeMove = event => {
     // Check if the box is filled, if not continue
     if (store.board[position] === '') {
       // Will return if X or O, will also update gameover, tie, and total moves
-      const play = other.markAndUpdate(position)
+      const play = gameLogic.markAndUpdate(position)
       store.moveConfirm = true
       api.makeMove(position, play)
         .then(ui.makeMoveSuccessful(event.target, play))

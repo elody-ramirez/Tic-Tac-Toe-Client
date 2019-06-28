@@ -31,6 +31,7 @@ const onChangePassword = event => {
 
   const form = event.target
   const formData = getFormFields(form)
+  $('#change-pw-modal').modal('toggle')
   api.changePassword(formData)
     .then(ui.changePasswordSuccessful)
     .catch(ui.changePasswordFailure)

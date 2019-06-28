@@ -32,6 +32,14 @@ header {
   justify-content: center;
 }
 
+.game-page {
+  display: flex;
+  justify-content: space-around;
+  .btn {
+    background-color: grey;
+  }
+}
+
 .hide {
   display: none;
 }
