@@ -38,6 +38,7 @@ const onMakeMove = event => {
     if (store.board[position] === '') {
       // Will return if X or O, will also update gameover, tie, and total moves
       const play = other.markAndUpdate(position)
+      store.moveConfirm = true
       api.makeMove(position, play)
         .then(ui.makeMoveSuccessful(event.target, play))
         .catch(ui.makeMoveFailure)

@@ -24,8 +24,8 @@ const signUpFailure = () => {
 const signInSuccessful = responseData => {
   successMessage('You logged into your account!')
   store.user = responseData.user
-  $('#sign-up').addClass('hide')
-  $('#sign-in').addClass('hide')
+  $('#sign-up-modal-button').addClass('hide')
+  $('#sign-in-modal-button').addClass('hide')
   $('#change-password').removeClass('hide')
   $('#sign-out').removeClass('hide')
   $('#index-games').removeClass('hide')
@@ -46,8 +46,8 @@ const changePasswordFailure = () => {
 
 const signOutSuccessful = responseData => {
   successMessage('You have successfully logged out!')
-  $('#sign-up').removeClass('hide')
-  $('#sign-in').removeClass('hide')
+  $('#sign-up-modal-button').removeClass('hide')
+  $('#sign-in-modal-button').removeClass('hide')
   $('#change-password').addClass('hide')
   $('#sign-out').addClass('hide')
   $('.container').addClass('hide')

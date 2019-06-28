@@ -19,6 +19,7 @@ const clearGame = responseData => {
   store.game = responseData.game
   store.gameOver = false
   store.tie = false
+  store.moveConfirm = false
 }
 
 const newGameSuccessful = responseData => {
@@ -73,7 +74,9 @@ const indexGamesFailure = responseData => {
 // }
 //
 // const hoverOut = box => {
-//   $(box).text('')
+//   if (!store.moveConfirm) {
+//     $(box).text('')
+//   }
 // }
 
 const illegalMove = responseData => {
