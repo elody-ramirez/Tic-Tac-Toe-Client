@@ -92,7 +92,7 @@
 
           <!-- Change Password modal -->
           <div class="modal fade" id="change-pw-modal" tabindex="-1" role="dialog"
-          aria-labelledby="signInModalLabel" aria-hidden="true">
+          aria-labelledby="changePwModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -147,11 +147,33 @@
           <button class="btn btn-primary hide" id="back">Back</button>
           <button class="btn btn-primary" id="new-game">New Game</button>
           <button class="btn btn-primary" id="versus-cpu">Versus CPU</button>
-          <form id="join-game">
-            <input type="number" name=game[id]
-            class="form-control" placeholder="Enter Game ID Here" required>
-            <button class="btn btn-primary">Join Game</button>
-          </form>
+
+          <!-- Join Game modal button-->
+          <button type="button" class="btn btn-primary btn-xl" data-toggle="modal"
+          id="join-game-modal-button" data-target="#join-game-modal">
+          Join Game</button>
+
+          <!-- Join Game modal -->
+          <div class="modal fade" id="join-game-modal" tabindex="-1" role="dialog"
+          aria-labelledby="joinGameModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="join-game-label">Join Game</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="join-game">
+                    <input type="number" name=game[id]
+                    class="form-control" placeholder="Enter Game ID Here" required>
+                    <button class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
       </main>

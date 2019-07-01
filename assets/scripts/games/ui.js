@@ -38,7 +38,7 @@ const newGameSuccessful = responseData => {
   $('.container').removeClass('hide')
   $('#back').removeClass('hide')
   $('#versus-cpu').addClass('hide')
-  $('#join-game').addClass('hide')
+  $('#join-game-modal-button').addClass('hide')
   $('.box').text('')
   $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id
@@ -96,7 +96,7 @@ const back = responseData => {
   $('#back').addClass('hide')
   $('#versus-cpu').removeClass('hide')
   $('#new-game').removeClass('hide')
-  $('#join-game').removeClass('hide')
+  $('#join-game-modal-button').removeClass('hide')
   $('.message3').addClass('hide')
   $('.message2').addClass('hide')
 }
@@ -125,7 +125,7 @@ const versusCpuSuccessful = responseData => {
   $('.container').removeClass('hide')
   $('#back').removeClass('hide')
   $('#new-game').addClass('hide')
-  $('#join-game').addClass('hide')
+  $('#join-game-modal-button').addClass('hide')
   $('.box').text('')
   $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id

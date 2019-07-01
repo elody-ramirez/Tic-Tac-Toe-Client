@@ -11,6 +11,7 @@ const onJoinGame = event => {
 
   const form = event.target
   const formData = getFormFields(form)
+  $('#join-game-modal').modal('toggle')
   api.joinGame(formData)
     .then(ui.joinGameSuccessful)
     .catch(ui.joinGameFailure)

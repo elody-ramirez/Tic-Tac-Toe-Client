@@ -33,6 +33,7 @@ const joinGameSuccessful = responseData => {
   $('#versus-cpu').addClass('hide')
   $('.box').text('')
   $('.game-page-header').css('display', 'none')
+  $('#join-game-modal-button').addClass('hide')
   clearMessaging()
 
   for (let i = 0; i < store.board.length; i++) {
