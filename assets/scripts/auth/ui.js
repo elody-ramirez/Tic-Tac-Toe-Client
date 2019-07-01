@@ -18,6 +18,7 @@ const clearMessaging = function () {
   setTimeout(function () {
     // $('#message').text('')
     $('.message1').hide()
+    $('.messsage2').hide()
   }, 3000)
 }
 

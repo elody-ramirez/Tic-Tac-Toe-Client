@@ -34,7 +34,10 @@ const clearGame = responseData => {
 const newGameSuccessful = responseData => {
   successMessage('You started a new game! X goes First')
   $('.container').removeClass('hide')
+  $('#back').removeClass('hide')
+  $('#bot').addClass('hide')
   $('.box').text('')
+  $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id
   clearGame(responseData)
   clearMessaging()
@@ -83,6 +86,13 @@ const indexGamesFailure = responseData => {
   clearMessaging()
 }
 
+const back = responseData => {
+  $('.game-page-header').css('display', 'flex')
+  $('.container').addClass('hide')
+  $('#back').addClass('hide')
+  $('#bot').removeClass('hide')
+}
+
 // const hoverIn = box => {
 //   $(box).text(store.player)
 // }
@@ -110,7 +120,8 @@ module.exports = {
   indexGamesSuccessful,
   indexGamesFailure,
   illegalMove,
-  gameOver
+  gameOver,
+  back
   // hoverIn,
   // hoverOut
 }

@@ -18,4 +18,5 @@ $(() => {
   // $('.box').on('mouseenter', gameEvents.onHoverIn)
   // $('.box').on('mouseleave', gameEvents.onHoverOut)
   $('#index-games').on('click', gameEvents.onIndexGames)
+  $('#back').on('click', gameEvents.onBack)
 })

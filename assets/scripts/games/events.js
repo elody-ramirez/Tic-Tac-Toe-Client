@@ -38,7 +38,6 @@ const onMakeMove = event => {
     if (store.board[position] === '') {
       // Will return if X or O, will also update gameover, tie, and total moves
       const play = gameLogic.markAndUpdate(position)
-      store.moveConfirm = true
       api.makeMove(position, play)
         .then(ui.makeMoveSuccessful(event.target, play))
         .catch(ui.makeMoveFailure)
@@ -52,10 +51,15 @@ const onMakeMove = event => {
   }
 }
 
+const onBack = event => {
+  ui.back()
+}
+
 module.exports = {
   onNewGame,
   onMakeMove,
-  onIndexGames
+  onIndexGames,
+  onBack
   // onHoverIn,
   // onHoverOut
 }
