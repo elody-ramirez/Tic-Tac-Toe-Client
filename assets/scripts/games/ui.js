@@ -98,6 +98,7 @@ const back = responseData => {
   $('#new-game').removeClass('hide')
   $('#join-game').removeClass('hide')
   $('.message3').addClass('hide')
+  $('.message2').addClass('hide')
 }
 
 // const hoverIn = box => {

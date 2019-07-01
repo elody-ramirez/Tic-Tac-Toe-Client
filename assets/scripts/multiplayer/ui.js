@@ -25,7 +25,7 @@ const clearMessaging = function () {
 const joinGameSuccessful = responseData => {
   // console.log(responseData)
   store.board = responseData.game.cells
-  // console.log(store.board)
+  console.log(store.board)
   successMessage('You joined a Multiplayer Game!')
   $('#game-ID').text(`This current game ID is: ${responseData.game.id}`)
   $('.container').removeClass('hide')
@@ -35,8 +35,9 @@ const joinGameSuccessful = responseData => {
   $('.game-page-header').css('display', 'none')
   clearMessaging()
 
-  for (let i = 0; i < store.board; i++) {
-    $(`.${i}`).text(store.board)
+  for (let i = 0; i < store.board.length; i++) {
+    console.log($(`#${i}`))
+    $(`#${i}`).text(store.board[i])
   }
 }
 
