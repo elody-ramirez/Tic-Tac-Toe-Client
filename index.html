@@ -129,13 +129,9 @@
               <div id="0" class="col-4 box top left"></div>
               <div id="1" class="col-4 box top"></div>
               <div id="2" class="col-4 box top right"></div>
-            </div>
-            <div class="row">
               <div id="3" class="col-4 box left"></div>
               <div id="4" class="col-4 box"></div>
               <div id="5" class="col-4 box right"></div>
-            </div>
-            <div class="row">
               <div id="6" class="col-4 box bottom left"></div>
               <div id="7" class="col-4 box bottom"></div>
               <div id="8" class="col-4 box bottom right"></div>
@@ -143,10 +139,19 @@
           </div>
         </section>
 
+        <section class="message3">
+          <h3 id="game-ID"></h3>
+        </section>
+
         <section class="new">
           <button class="btn btn-primary hide" id="back">Back</button>
           <button class="btn btn-primary" id="new-game">New Game</button>
           <button class="btn btn-primary" id="versus-cpu">Versus CPU</button>
+          <form id="join-game">
+            <input type="number" name=game[id]
+            class="form-control" placeholder="Enter Game ID Here" required>
+            <button class="btn btn-primary">Join Game</button>
+          </form>
         </section>
 
       </main>

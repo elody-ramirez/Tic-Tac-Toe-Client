@@ -1,6 +1,6 @@
 'use strict'
 
-const getFormFields = require('../../../lib/get-form-fields')
+// const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 const gameLogic = require('./gameLogic')
 const api = require('./api')

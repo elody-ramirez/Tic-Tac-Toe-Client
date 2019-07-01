@@ -1,6 +1,6 @@
 'use strict'
 
-const config = require('../config')
+const config = require('../config2')
 const store = require('../store')
 
 const signUp = formData => {

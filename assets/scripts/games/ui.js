@@ -26,16 +26,19 @@ const clearGame = responseData => {
   store.moveCount = 0
   store.player = 'X'
   store.game = responseData.game
+  console.log(store.game)
   store.gameOver = false
   store.tie = false
-  store.moveConfirm = false
+  // store.moveConfirm = false
 }
 
 const newGameSuccessful = responseData => {
   successMessage('You started a new game! X goes First')
+  $('#game-ID').text(`This current game ID is: ${responseData.game.id}`)
   $('.container').removeClass('hide')
   $('#back').removeClass('hide')
   $('#versus-cpu').addClass('hide')
+  $('#join-game').addClass('hide')
   $('.box').text('')
   $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id
@@ -93,6 +96,8 @@ const back = responseData => {
   $('#back').addClass('hide')
   $('#versus-cpu').removeClass('hide')
   $('#new-game').removeClass('hide')
+  $('#join-game').removeClass('hide')
+  $('.message3').addClass('hide')
 }
 
 // const hoverIn = box => {
@@ -119,6 +124,7 @@ const versusCpuSuccessful = responseData => {
   $('.container').removeClass('hide')
   $('#back').removeClass('hide')
   $('#new-game').addClass('hide')
+  $('#join-game').addClass('hide')
   $('.box').text('')
   $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id
