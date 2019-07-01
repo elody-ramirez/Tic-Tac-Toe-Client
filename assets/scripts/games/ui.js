@@ -35,12 +35,13 @@ const newGameSuccessful = responseData => {
   successMessage('You started a new game! X goes First')
   $('.container').removeClass('hide')
   $('#back').removeClass('hide')
-  $('#bot').addClass('hide')
+  $('#versus-cpu').addClass('hide')
   $('.box').text('')
   $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id
   clearGame(responseData)
   clearMessaging()
+  store.versusCpu = false
 }
 
 const newGameFailure = () => {
@@ -90,7 +91,8 @@ const back = responseData => {
   $('.game-page-header').css('display', 'flex')
   $('.container').addClass('hide')
   $('#back').addClass('hide')
-  $('#bot').removeClass('hide')
+  $('#versus-cpu').removeClass('hide')
+  $('#new-game').removeClass('hide')
 }
 
 // const hoverIn = box => {
@@ -112,6 +114,19 @@ const gameOver = responseData => {
   failureMessage('The game is over. Please start a new game to continue playing')
 }
 
+const versusCpuSuccessful = responseData => {
+  successMessage('You started a new game! You go First')
+  $('.container').removeClass('hide')
+  $('#back').removeClass('hide')
+  $('#new-game').addClass('hide')
+  $('.box').text('')
+  $('.game-page-header').css('display', 'none')
+  // Clears board, sets everything to fresh start, record game id
+  clearGame(responseData)
+  clearMessaging()
+  store.versusCpu = true
+}
+
 module.exports = {
   newGameSuccessful,
   newGameFailure,
@@ -121,7 +136,8 @@ module.exports = {
   indexGamesFailure,
   illegalMove,
   gameOver,
-  back
+  back,
+  versusCpuSuccessful
   // hoverIn,
   // hoverOut
 }

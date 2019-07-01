@@ -19,4 +19,5 @@ $(() => {
   // $('.box').on('mouseleave', gameEvents.onHoverOut)
   $('#index-games').on('click', gameEvents.onIndexGames)
   $('#back').on('click', gameEvents.onBack)
+  $('#versus-cpu').on('click', gameEvents.onVersusCpu)
 })
