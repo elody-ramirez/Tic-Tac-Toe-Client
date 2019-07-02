@@ -55,7 +55,12 @@ had to fix my PATCH API info to let the API know if the game was over or not.
 
 I then refactored my code and created functions in a new file to pull into my
 events file to make it look cleaner. I also added notes to functions to better
-explain it to others and so they can understand. 
+explain it to others and so they can understand.
+
+Once my functionality was complete. I worked on the background and loyout and
+the presentation of my webpage. Once I completed that I add additional
+buttons to go back once in a game to hide user settings (Change Password,
+Sign out, Get stats) as well as a Versus CPU and join multiplayer game.
 
 ## Problem-Solving Strategy
 The update move or PATCH communication to the API gave me trouble. The way I
@@ -73,10 +78,28 @@ my event handler would always check if the game was over in order to allow a
 click. If the board wasn't full it would run, send the info to the api and then
 the ui would update if the game was over or not. I moved this check to the events
 handler file so that the update would occur before the api was spoken with.
+
 ## Unsolved Problems
+Something I couln't solve was restricting a multiplayer game so only the user
+that corresponds with the stored ID can make changes.
 
 ## Future Features
+I want to be able to play in the multiplayer game where a user can not select
+the options for the opposing player if possible. I'd also like my website
+to be dynamic where it is fully functional on a cellphone, tablet and computer.
 
 ## WireFrames
 
+https://imgur.com/gallery/FQGI9AK
+
 ## User Stories
+- As a new user I want to sign up so I can play tic tac toe
+- As a returning user I want to log in and play tic tac toe
+- As a logged in user I want to be able to log out so no one accesses
+my account
+- As a logged in user I want to be able to change my password to keep my
+account secure
+- As a logged in user I want to be able to see how many games I have won
+- As a logged in user I want to play against the CPU
+- As a logged in user I want to be able to play against someone else
+- As a playing user I want to start a new game when I am done
