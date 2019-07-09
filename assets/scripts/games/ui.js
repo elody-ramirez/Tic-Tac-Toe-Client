@@ -26,7 +26,6 @@ const clearGame = responseData => {
   store.moveCount = 0
   store.player = 'X'
   store.game = responseData.game
-  console.log(store.game)
   store.gameOver = false
   store.tie = false
   // store.moveConfirm = false

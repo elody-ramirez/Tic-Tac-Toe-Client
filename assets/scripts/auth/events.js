@@ -20,7 +20,6 @@ const onSignIn = event => {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   $('#sign-in-modal').modal('toggle')
   api.signIn(formData)
     .then(ui.signInSuccessful)

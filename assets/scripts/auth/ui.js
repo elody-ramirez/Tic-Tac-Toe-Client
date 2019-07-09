@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+// const api = require('./api')
 
 const successMessage = message => {
   $('#first-page-message').text(message)
