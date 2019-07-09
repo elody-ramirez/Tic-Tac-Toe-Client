@@ -19,7 +19,7 @@ const clearMessaging = function () {
   setTimeout(function () {
     // $('#message').text('')
     $('.message2').hide()
-  }, 3000)
+  }, 4000)
 }
 const clearGame = responseData => {
   store.board = ['', '', '', '', '', '', '', '', '']
@@ -42,7 +42,6 @@ const newGameSuccessful = responseData => {
   $('.game-page-header').css('display', 'none')
   // Clears board, sets everything to fresh start, record game id
   clearGame(responseData)
-  clearMessaging()
   store.versusCpu = false
 }
 
@@ -96,8 +95,8 @@ const back = responseData => {
   $('#versus-cpu').removeClass('hide')
   $('#new-game').removeClass('hide')
   $('#join-game-modal-button').removeClass('hide')
-  $('.message3').addClass('hide')
-  $('.message2').addClass('hide')
+  $('.message3').css('display', 'none')
+  $('.message2').css('display', 'none')
 }
 
 // const hoverIn = box => {
